@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1004069241810",
+    "project_id": "evergreenwater-4f65e",
+    "storage_bucket": "evergreenwater-4f65e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004069241810:android:c69ec539994b6b31fdfe0b",
+        "android_client_info": {
+          "package_name": "com.dbvertex.evergreen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf_z2CFRbwlxkyqbcc0hvVDEl4OULeuoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
