@@ -1875,48 +1875,48 @@ class _MyProfile extends State<MyProfile> with SingleTickerProviderStateMixin {
                                                 ),
                                               ),
                                             ),),),
-                                            Positioned(
-                                              top: 1,
-                                              right: 1,
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      width: 1,
-                                                      color: Colors.white),
-                                                  borderRadius:
-                                                      BorderRadius.circular(60),
-                                                  color: Colors.white,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      offset: Offset(2, 4),
-                                                      color: Colors.black
-                                                          .withOpacity(0.3),
-                                                      blurRadius: 3,
-                                                    ),
-                                                  ],
-                                                ),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(2.0),
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      showDialog(
-                                                        context: context,
-                                                        builder: (BuildContext
-                                                                context) =>
-                                                            selectImage(
-                                                                context),
-                                                      );
-                                                    },
-                                                    child: Icon(
-                                                      Icons
-                                                          .photo_camera_outlined,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                           //  Positioned(
+                                           //    top: 1,
+                                           //    right: 1,
+                                           //    child: Container(
+                                           //      decoration: BoxDecoration(
+                                           //        border: Border.all(
+                                           //            width: 1,
+                                           //            color: Colors.white),
+                                           //        borderRadius:
+                                           //            BorderRadius.circular(60),
+                                           //        color: Colors.white,
+                                           //        boxShadow: [
+                                           //          BoxShadow(
+                                           //            offset: Offset(2, 4),
+                                           //            color: Colors.black
+                                           //                .withOpacity(0.3),
+                                           //            blurRadius: 3,
+                                           //          ),
+                                           //        ],
+                                           //      ),
+                                           //      child: Padding(
+                                           //        padding:
+                                           //            const EdgeInsets.all(2.0),
+                                           //        child: InkWell(
+                                           //          onTap: () {
+                                           // showDialog(
+                                           //          context: context,
+                                           //       builder: (BuildContext
+                                           //                context) =>
+                                           //        selectImage(
+                                           //                   context),
+                                           //                    );
+                                           //                          },
+                                           //          child: Icon(
+                                           //            Icons
+                                           //                .photo_camera_outlined,
+                                           //            color: Colors.black,
+                                           //          ),
+                                           //        ),
+                                           //      ),
+                                           //    ),
+                                           //  ),
                                             Positioned(
                                               bottom: 1,
                                               right: 1,
@@ -1986,7 +1986,7 @@ class _MyProfile extends State<MyProfile> with SingleTickerProviderStateMixin {
                                           textAlign: TextAlign.center,
                                           onTap: () {
                                             setState(() {});
-                                          },
+                                          }, enabled: false,
                                           decoration: InputDecoration(
                                             hintStyle:
                                                 AppConstant.edit_txt_hint(),
@@ -2098,6 +2098,7 @@ class _MyProfile extends State<MyProfile> with SingleTickerProviderStateMixin {
                                               .user_address_controller,
                                           textAlign: TextAlign.center,
                                           onTap: () {},
+                                          enabled: false,
                                           decoration: InputDecoration(
                                             hintStyle:
                                                 AppConstant.edit_txt_hint(),

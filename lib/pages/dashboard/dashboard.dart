@@ -360,20 +360,15 @@ class _DashboardState extends State<Dashboard> {
                                                                 text:
                                                                     "Submitted By:",
                                                                 style: GoogleFonts.roboto(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                    color: Colors
-                                                                        .black),
+                                                                    fontWeight: FontWeight.w700,
+                                                                    color: Colors.black),
                                                                 children: [
                                                                   TextSpan(
                                                                       text:
                                                                           "${svFormOneController.svsiteList.value[i].sites[0].reportSubmit?.fullName}",
                                                                       style: GoogleFonts.roboto(
-                                                                          fontWeight: FontWeight
-                                                                              .w500,
-                                                                          color:
-                                                                              Colors.black)),
+                                                                          fontWeight: FontWeight.w500,
+                                                                          color: Colors.black)),
                                                                 ],
                                                               ),
                                                               overflow:
