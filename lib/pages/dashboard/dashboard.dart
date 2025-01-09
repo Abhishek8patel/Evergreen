@@ -365,7 +365,7 @@ class _DashboardState extends State<Dashboard> {
                                                                 children: [
                                                                   TextSpan(
                                                                       text:
-                                                                          "${svFormOneController.svsiteList.value[i].sites[0].reportSubmit?.fullName}",
+                                                                          "${svFormOneController.svsiteList?.value[i].sites[0].reportSubmit?.fullName}",
                                                                       style: GoogleFonts.roboto(
                                                                           fontWeight: FontWeight.w500,
                                                                           color: Colors.black)),
@@ -485,7 +485,7 @@ class _DashboardState extends State<Dashboard> {
                                                                       .start,
                                                               children: [
                                                                 Text(
-                                                                  "${svFormOneController.svsiteList.value[i].sites[0].siteName.capitalizeFirst}",
+                                                                  "${svFormOneController.svsiteList?.value[i].sites[0].siteName.capitalizeFirst}",
                                                                   style: AppConstant.getRoboto(
                                                                       FontWeight
                                                                           .w800,
@@ -507,23 +507,15 @@ class _DashboardState extends State<Dashboard> {
                                                                   child:
                                                                       Bounceable(
                                                                     onTap: () {
-                                                                      dashboardController.currentSiteID!.value = svFormOneController
-                                                                          .svsiteList
-                                                                          .value[
-                                                                              i]
-                                                                          .sites[
-                                                                              0]
-                                                                          .id;
+                                                                      dashboardController.currentSiteID?.value = svFormOneController
+                                                                          .svsiteList.value[i].sites[0].id;
                                                                       dashboardController
                                                                           .currentSiteID!
                                                                           .refresh();
                                                                       Get.to(
-                                                                          () =>
-                                                                              Take_Selfie(),
-                                                                          curve: Curves
-                                                                              .fastOutSlowIn,
-                                                                          duration:
-                                                                              Duration(milliseconds: 1000));
+                                                                          () => Take_Selfie(),
+                                                                          curve: Curves.fastOutSlowIn,
+                                                                          duration: Duration(milliseconds: 1000));
                                                                     },
                                                                     child:
                                                                         Container(

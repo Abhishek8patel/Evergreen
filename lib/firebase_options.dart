@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1004069241810',
     projectId: 'evergreenwater-4f65e',
     storageBucket: 'evergreenwater-4f65e.appspot.com',
-    iosBundleId: 'com.dbvertex.evergreen',
+    iosBundleId: 'com.dbvertex.evergreenlive',
   );
 }
