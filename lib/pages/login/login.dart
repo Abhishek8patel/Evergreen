@@ -514,8 +514,8 @@ class _LoginState extends State<Login> {
                                     //     AppConstant.take_data("fcm")),
 
                                     util.showSnackBar(
-                                        "Alertlogin",
-                                        "hello" + value!.userdata!.fullName,
+                                        "Alert login",
+                                        "Hello " + value!.userdata!.fullName,
                                         true),
                                     AppConstant.save_data(
                                         "token", value!.token.toString()),

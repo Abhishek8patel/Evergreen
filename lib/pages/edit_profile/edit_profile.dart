@@ -765,7 +765,8 @@ class _EditProfileState extends State<EditProfile> {
                                         ),
                                         keyboardType:
                                             TextInputType.visiblePassword,
-                                        inputFormatters: [],
+                                        inputFormatters: [FilteringTextInputFormatter.allow(
+                                            RegExp(r'[a-zA-Z\s.0-9@]')),],
                                       ),
                                     ),
                                   ),
@@ -859,6 +860,8 @@ class _EditProfileState extends State<EditProfile> {
                                           hintText: "Address",
                                         ),
                                         keyboardType: TextInputType.text,
+                                        inputFormatters: [FilteringTextInputFormatter.allow(
+                                            RegExp(r'[a-zA-Z\s.0-9/-]')),],
                                       ),
                                     ),
                                   ),
@@ -868,7 +871,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                         ),
                         // submit
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Padding(
                           padding: EdgeInsets.only(
                             top: AppConstant.APP_NORMAL_PADDING,

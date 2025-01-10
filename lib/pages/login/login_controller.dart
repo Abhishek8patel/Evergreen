@@ -98,7 +98,7 @@ class LoginController extends GetxController {
         if (temp['message'] == "OTP Not verified") {
           util.showSnackBar("Alert", temp['message'], false);
           Get.to(Otp(false, log_email.text.toString(), "login",
-              "Contact admin for OTP"));
+              "Contact admin for OTP", newOtp: null,));
           return null;
         } else {
           if (temp['message'] ==

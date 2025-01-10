@@ -1,4 +1,6 @@
 // import 'package:testingevergreen/Utills/universal.dart';
+import 'package:flutter/services.dart';
+
 import '../../../Utills3/utills.dart';
 import 'package:testingevergreen/appconstants/SceenTitles.dart';
 import 'package:testingevergreen/appconstants/appconstants.dart';
@@ -341,12 +343,16 @@ class _ConsumeChemicalListState extends State<ConsumeChemicalList> {
                               child: Container(
                                 margin: EdgeInsets.only(left: 10),
                                 child: TextField(
+                                 inputFormatters: [
+                                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                                ],
                                   autofocus: true,
                                   controller: chemicalController.qty,
                                   decoration: InputDecoration.collapsed(
                                       fillColor: Colors.transparent,
                                       filled: true,
                                       hintText: "Enter your qty",
+
                                       hintStyle: GoogleFonts.roboto(
                                           fontWeight: FontWeight.w700,
                                           fontSize:

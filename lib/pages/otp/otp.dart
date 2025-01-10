@@ -1,3 +1,4 @@
+import 'package:testingevergreen/Utills3/universal.dart';
 import 'package:testingevergreen/pages/login/login.dart';
 import 'package:testingevergreen/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../Utills3/utills.dart';
 import '../../appconstants/appconstants.dart';
 import '../../appconstants/mycolor.dart';
-
+import 'package:testingevergreen/pages/forgot_password/forget_pw_res.dart'
+as ForgetRes;
+import 'package:testingevergreen/pages/forgot_password/reset_otp_res.dart'
+as reset_otp_res;
+import '../auth/auth_repository.dart';
+import '../forgot_password/forgot_pw_controller.dart';
+import '../forgot_password/reset_otp_res.dart';
+import '../forgot_password/reset_otp_res.dart';
 import '../myhomepage/myhomepage.dart';
 import '../signup/signup_controller.dart';
 import 'otp_controller.dart';
@@ -15,22 +23,40 @@ import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Otp extends StatefulWidget {
-  bool? isForgetpw;
-  String? mobile_no;
-  String? from;
-  String? otp;
+// class Otp extends StatefulWidget {
+//   bool? isForgetpw;
+//   String? mobile_no;
+//   String? from;
+//   String? otp;
+//   bool? newOtp;
+//
+//   Otp(bool _isForgetPW, String _mobile, String _from, String? otp ,{ this.newOtp}) {
+//     this.isForgetpw = _isForgetPW;
+//     this.mobile_no = _mobile;
+//     this.from = _from;
+//     this.otp = otp;
+//     this.newOtp;
+//   }
 
-  Otp(bool _isForgetPW, String _mobile, String _from, String? _otp) {
-    this.isForgetpw = _isForgetPW;
-    this.mobile_no = _mobile;
-    this.from = _from;
-    this.otp = _otp;
-  }
+class Otp extends StatefulWidget {
+  final bool isForgetPw; // Marking as final since it shouldn't change after initialization
+  final String mobileNo;
+  final String from;
+  final String? otp;
+  final String? newOtp;
+
+  Otp(
+      this.isForgetPw,
+      this.mobileNo,
+      this.from,
+      this.otp, {
+        this.newOtp,
+      }); // Simplified constructor
+
 
   @override
   State<Otp> createState() =>
-      _OtpState(this.isForgetpw!, this.mobile_no!, this.from!);
+      _OtpState(isForgetPw, mobileNo, from);
 }
 
 class _OtpState extends State<Otp> {
@@ -96,7 +122,10 @@ class _OtpState extends State<Otp> {
       userMobile = this.mobile_no.toString();
     }
   }
+  // final ForgotPasswordController controller =
+  // Get.put(ForgotPasswordController(authRepository: AuthRepository(apiClient: )));
 
+  Future<reset_otp_res.ResendOtpRes?>? otpFuture;
   Dialog AccountCreatedDialog(BuildContext context) {
     return Dialog(
         shape: RoundedRectangleBorder(
@@ -526,7 +555,7 @@ class _OtpState extends State<Otp> {
                               ),
                             ),
                           ),
-
+                      
                           Visibility(
                             visible: isOTPPage,
                             child: Align(
@@ -575,12 +604,34 @@ class _OtpState extends State<Otp> {
 
                     //login
                     Visibility(
-                      visible: widget.otp == null ? false : true,
+                      visible: widget.newOtp == null ? false : true,
                       child: Center(
                         child: Text(
-                            "Your OTP is: ${widget.otp ?? "No otp found!!"}"),
+                            "Your OTP is : ${widget.newOtp ?? "No otp found!!"} "),
                       ),
-                    ),
+                    ), //
+                    // FutureBuilder<reset_otp_res.ResendOtpRes?>(
+                    //   future: otpFuture,
+                    //   builder: (context, snapshot) {
+                    //     if (snapshot.connectionState == ConnectionState.waiting) {
+                    //       return const Center(child: CircularProgressIndicator());
+                    //     } else if (snapshot.hasError) {
+                    //       return Text("Error: ${snapshot.error}");
+                    //     } else if (snapshot.hasData && snapshot.data != null) {
+                    //       final otpStatus = snapshot.data!.status;
+                    //       return Center(
+                    //         child: Text(
+                    //           otpStatus
+                    //               ? "Your OTP is sent successfully!"
+                    //               : "Failed to send OTP",
+                    //           style: const TextStyle(fontSize: 16),
+                    //         ),
+                    //       );
+                    //     } else {
+                    //       return const Text("No OTP found or operation canceled.");
+                    //     }
+                    //   },
+                    // ),
                     Padding(
                       padding: EdgeInsets.only(
                           left: AppConstant.LARGE_SIZE,

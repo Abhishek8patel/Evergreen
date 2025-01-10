@@ -647,6 +647,8 @@ class _SignupState extends State<Signup> {
                                               },
                                               controller:
                                                   reg_controller.address,
+                                                  inputFormatters: [FilteringTextInputFormatter.allow(
+                                                      RegExp(r'[a-zA-Z\s,0-9/-]')),],
                                               decoration: InputDecoration(
                                                 hintStyle: TextStyle(
                                                     fontSize: 16.0,
@@ -824,6 +826,8 @@ class _SignupState extends State<Signup> {
                                                                   .visibility_off,color: Colors.green,)),
                                                   hintText: AppConstant
                                                       .HINT_TEXT_CONFIRM_PASSWORD_SIGNUP,
+                                                  contentPadding: const EdgeInsets.only(
+                                                      right: 60.0,top: 10),
                                                 ),
                                                 keyboardType: TextInputType
                                                     .visiblePassword,
